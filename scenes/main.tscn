@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://5asq5j35jtul"]
+
+[ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
+[ext_resource type="PackedScene" uid="uid://b3st3cl85yb0t" path="res://scenes/hud.tscn" id="1_w5jnp"]
+[ext_resource type="PackedScene" uid="uid://df8f5xj7y66my" path="res://scenes/ghost.tscn" id="3_2pqcv"]
+[ext_resource type="PackedScene" uid="uid://2t2j13qwgc5x" path="res://scenes/room.tscn" id="4_d58gt"]
+
+[node name="Main" type="Node"]
+
+[node name="HUD" parent="." instance=ExtResource("1_w5jnp")]
+
+[node name="Player" parent="." instance=ExtResource("1_p2ntj")]
+z_index = 1
+position = Vector2(38, 410)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+
+[node name="ghost" parent="." instance=ExtResource("3_2pqcv")]
+z_index = 1
+position = Vector2(298, 257)
+scale = Vector2(0.1, 0.1)
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(3, 131)
+
+[node name="Game" parent="." instance=ExtResource("4_d58gt")]
+position = Vector2(3, 131)
