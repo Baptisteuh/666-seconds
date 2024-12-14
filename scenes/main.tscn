@@ -7,22 +7,32 @@
 
 [node name="Main" type="Node"]
 
-[node name="HUD" parent="." instance=ExtResource("1_w5jnp")]
-
 [node name="Player" parent="." instance=ExtResource("1_p2ntj")]
 z_index = 1
-position = Vector2(38, 410)
+position = Vector2(1377, 287)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 
+[node name="HUD" parent="Player/Camera2D" instance=ExtResource("1_w5jnp")]
+offset_left = -144.0
+offset_top = -81.0
+offset_right = -144.0
+offset_bottom = -81.0
+scale = Vector2(0.250008, 0.249995)
+
+[node name="ColorRect" type="ColorRect" parent="Player/Camera2D"]
+z_index = -4
+offset_left = -157.0
+offset_top = -95.0
+offset_right = -14.0
+offset_bottom = 575.0
+scale = Vector2(2.27525, 0.284964)
+color = Color(0, 0, 0, 1)
+
 [node name="ghost" parent="." instance=ExtResource("3_2pqcv")]
 z_index = 1
-position = Vector2(298, 257)
-scale = Vector2(0.1, 0.1)
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(3, 131)
+position = Vector2(1637, 134)
 
 [node name="Game" parent="." instance=ExtResource("4_d58gt")]
-position = Vector2(3, 131)
+position = Vector2(1342, 8)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3bj77cuxij5j"
-path="res://.godot/imported/walk.png-c16a4b53f3d0c28d4e3c6cdac598b111.ctex"
+uid="uid://b057p14ksnj5j"
+path="res://.godot/imported/water_ghost.png-99decdc63cd971aaf36916a75e7c3798.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/walk.png"
-dest_files=["res://.godot/imported/walk.png-c16a4b53f3d0c28d4e3c6cdac598b111.ctex"]
+source_file="res://assets/sprites/ghost/water/water_ghost.png"
+dest_files=["res://.godot/imported/water_ghost.png-99decdc63cd971aaf36916a75e7c3798.ctex"]
 
 [params]
 
