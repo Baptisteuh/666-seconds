@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="666 seconds"
-run/main_scene="res://scenes/menu.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalVariables="*res://scripts/global_variables.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [input]
 
