@@ -2,26 +2,36 @@ extends Label
 
 var timer := Timer.new()
 var hit = false
+var duration
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	duration = get_node("/root/GlobalVariables").time
 	add_child(timer)
-	timer.wait_time = 666.0
+	timer.connect("timeout", _on_timer_timeout)
+	timer.wait_time = duration
 	timer.one_shot = true
 	timer.start()
-	timer.connect("timeout", _on_timer_timeout)
-	pass # Replace with function body.
 
 func _on_timer_timeout() -> void:
-	# lose
-	queue_free()
-	pass
+	lose()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if hit:
-		timer.wait_time -= 50.0
+		duration = timer.time_left
+		duration -= 50.0
+		if duration <= 0:
+			lose()
+		timer.stop()
+		timer.wait_time = duration
 		hit = false
+		timer.start()
+	get_node("/root/GlobalVariables").time = duration
 	self.text = str(roundf(timer.time_left))
-	pass
+
+
+func lose() -> void:
+	GlobalVariables.victory_text = "YOU LOST !!!"
+	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
