@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_5drey"]
 [ext_resource type="Texture2D" uid="uid://c5dyn0pac5d3j" path="res://assets/sprites/UI/menu_bg.png" id="2_qha7o"]
-[ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://DoubleHomicide.ttf" id="3_cjq7f"]
+[ext_resource type="FontFile" uid="uid://bxdceub01jtoy" path="res://assets/fonts/DoubleHomicide.ttf" id="3_cjq7f"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
