@@ -31,6 +31,8 @@ font = ExtResource("6_o6sar")
 [node name="Main" type="Node"]
 script = ExtResource("1_k0mp0")
 
+[node name="HUD" parent="." instance=ExtResource("1_w5jnp")]
+
 [node name="Layout" parent="." instance=ExtResource("4_d58gt")]
 position = Vector2(3, 131)
 
@@ -236,25 +238,9 @@ position = Vector2(736, 428)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 
-[node name="HUD" parent="Player/Camera2D" instance=ExtResource("1_w5jnp")]
-offset_left = -144.0
-offset_top = -81.0
-offset_right = -144.0
-offset_bottom = -81.0
-scale = Vector2(0.250066, 0.250066)
-
-[node name="ColorRect" type="ColorRect" parent="Player/Camera2D"]
-z_index = -2
-offset_left = -182.0
-offset_top = -108.0
-offset_right = -142.0
-offset_bottom = -68.0
-scale = Vector2(9.60829, 5.23308)
-color = Color(0, 0, 0, 1)
-
 [node name="ghost" parent="." instance=ExtResource("3_2pqcv")]
 z_index = 1
-position = Vector2(939, 681)
+position = Vector2(298, 257)
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(3, 131)

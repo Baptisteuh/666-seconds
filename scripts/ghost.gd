@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 const Fireball = preload("res://scenes/fireball.tscn")
-var timer := Timer.new()var firerate = 1.0
+var timer := Timer.new()
+var firerate = 1.0
 var health = 3.0
 var type
 
