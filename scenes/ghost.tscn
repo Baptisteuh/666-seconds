@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=14 format=3 uid="uid://df8f5xj7y66my"]
 
 [ext_resource type="Script" path="res://scripts/ghost.gd" id="1_vtgse"]
