@@ -1,13 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=23 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
 [ext_resource type="PackedScene" uid="uid://b3st3cl85yb0t" path="res://scenes/hud.tscn" id="1_w5jnp"]
+[ext_resource type="AudioStream" uid="uid://dj7yleuq4ap1e" path="res://assets/sounds/musics/bg_music.mp3" id="2_3l87y"]
 [ext_resource type="PackedScene" uid="uid://df8f5xj7y66my" path="res://scenes/ghost.tscn" id="3_2pqcv"]
+[ext_resource type="Script" path="res://scripts/music.gd" id="3_fu6tu"]
 [ext_resource type="PackedScene" uid="uid://2t2j13qwgc5x" path="res://scenes/room.tscn" id="4_d58gt"]
 [ext_resource type="Script" path="res://scripts/doors/right_door_main.gd" id="5_ktw3f"]
-[ext_resource type="FontFile" uid="uid://bxdceub01jtoy" path="res://assets/fonts/DoubleHomicide.ttf" id="6_o6sar"]
-[ext_resource type="AudioStream" uid="uid://dadrjqpx1tmjn" path="res://assets/sounds/door_sound.mp3" id="7_q8u0s"]
+[ext_resource type="FontFile" uid="uid://db1afvq6nh352" path="res://assets/fonts/DoubleHomicide.ttf" id="6_o6sar"]
+[ext_resource type="AudioStream" uid="uid://dadrjqpx1tmjn" path="res://assets/sounds/effects/door_sound.mp3" id="7_q8u0s"]
 [ext_resource type="Script" path="res://scripts/doors/right_door_small.gd" id="7_rdp1c"]
 [ext_resource type="Script" path="res://scripts/doors/door_center_main.gd" id="8_vrcr2"]
 [ext_resource type="Script" path="res://scripts/doors/door_center_small.gd" id="9_g47dk"]
@@ -31,6 +33,10 @@ font = ExtResource("6_o6sar")
 [node name="Main" type="Node"]
 script = ExtResource("1_k0mp0")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3l87y")
+script = ExtResource("3_fu6tu")
+
 [node name="Layout" parent="." instance=ExtResource("4_d58gt")]
 position = Vector2(3, 131)
 
@@ -51,6 +57,7 @@ position = Vector2(2, 5)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomRight/RoomRight/DoorMain"]
+texture_filter = 1
 offset_left = -30.0
 offset_top = -33.0
 offset_right = 41.0
@@ -72,6 +79,7 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomRight/RoomRight2/DoorSmall"]
+texture_filter = 1
 offset_left = -33.0
 offset_top = 15.0
 offset_right = 38.0
@@ -99,6 +107,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomCenter/RoomCenter/DoorCenter"]
+texture_filter = 1
 offset_left = -30.0
 offset_top = -33.0
 offset_right = 41.0
@@ -120,6 +129,7 @@ position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomCenter/RoomCenterSmall/DoorCenterSmall"]
+texture_filter = 1
 offset_left = -33.0
 offset_top = 15.0
 offset_right = 38.0
@@ -148,6 +158,7 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomLeft/RoomLeft/DoorLeft"]
+texture_filter = 1
 offset_left = -30.0
 offset_top = -33.0
 offset_right = 41.0
@@ -169,6 +180,7 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomLeft/RoomLeftSmall/DoorLeftSmall"]
+texture_filter = 1
 offset_left = -33.0
 offset_top = 15.0
 offset_right = 38.0
@@ -197,6 +209,7 @@ position = Vector2(4.5, 0.5)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomUpstair/RoomDown/StairsDown"]
+texture_filter = 1
 offset_left = 31.0
 offset_top = -9.0
 offset_right = 97.0
@@ -218,6 +231,7 @@ position = Vector2(-2, -6)
 shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomUpstair/RoomUp/StairsUp"]
+texture_filter = 1
 offset_left = 22.0
 offset_top = -16.0
 offset_right = 103.0
@@ -270,6 +284,7 @@ position = Vector2(731, 459)
 shape = SubResource("RectangleShape2D_ljb38")
 
 [node name="Label" type="Label" parent="Exit/ExitDoor"]
+texture_filter = 1
 offset_left = 669.0
 offset_top = 471.0
 offset_right = 799.0
