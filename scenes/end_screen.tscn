@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvw64x1tjmj4n"]
+
+[ext_resource type="Texture2D" uid="uid://c5dyn0pac5d3j" path="res://assets/sprites/UI/menu_bg.png" id="1_dyiid"]
+[ext_resource type="Script" path="res://scripts/end_screen_label.gd" id="2_a1pe6"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(664, -88.1356)
+scale = Vector2(2.82627, 2.82627)
+texture = ExtResource("1_dyiid")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 195.0
+offset_right = 1131.0
+offset_bottom = 408.0
+theme_override_font_sizes/font_size = 156
+script = ExtResource("2_a1pe6")

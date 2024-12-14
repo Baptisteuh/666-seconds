@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1tng2byl84sr"]
+[gd_scene load_steps=3 format=3 uid="uid://b3grh5yjhetjl"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_u0v2o"]
-[ext_resource type="Texture2D" uid="uid://c5dyn0pac5d3j" path="res://assets/sprites/UI/menu_bg.png" id="2_bmgbk"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_5drey"]
+[ext_resource type="Texture2D" uid="uid://c5dyn0pac5d3j" path="res://assets/sprites/UI/menu_bg.png" id="2_qha7o"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,12 +10,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u0v2o")
+script = ExtResource("1_5drey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(649, -69)
 scale = Vector2(2.78, 2.78)
-texture = ExtResource("2_bmgbk")
+texture = ExtResource("2_qha7o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -30,6 +30,7 @@ grow_vertical = 0
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
 text = "Start"
 
 [node name="ControlsButton" type="Button" parent="VBoxContainer"]
@@ -38,6 +39,7 @@ text = "Controls"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

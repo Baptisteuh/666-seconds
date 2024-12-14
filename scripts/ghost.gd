@@ -39,5 +39,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("click") && health > 0:
 		health -= 1.0
 		get_node("TextureProgressBar").value = health
-		print(get_node("TextureProgressBar"))
-		print(get_node("TextureProgressBar").value)
+	if health == 0.0:
+		GlobalVariables.victory_text = "YOU WON !!!"
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")

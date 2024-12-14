@@ -93,7 +93,7 @@ sprite_frames = SubResource("SpriteFrames_d7vtu")
 animation = &"shooting_fire"
 
 [node name="Aim" type="Marker2D" parent="."]
-position = Vector2(-73, -11)
+position = Vector2(-10, 9.53674e-07)
 script = ExtResource("4_wg8lc")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]

@@ -11,5 +11,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		self.get_parent().get_parent().get_node("Player").get_node("Camera2D").get_node("HUD").get_node("TimeLeft").hit = true
+		self.get_parent().get_parent().get_node("player").get_node("Camera2D").get_node("HUD").get_node("TimeLeft").hit = true
 	queue_free()
