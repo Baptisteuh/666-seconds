@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3st3cl85yb0t"]
+
+[ext_resource type="Script" path="res://scripts/time_left.gd" id="1_mr26o"]
+[ext_resource type="FontFile" uid="uid://bxdceub01jtoy" path="res://assets/fonts/DoubleHomicide.ttf" id="1_yfrif"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_we8i6"]
+font = ExtResource("1_yfrif")
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TimeLeft" type="Label" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 64
+text = "666"
+label_settings = SubResource("LabelSettings_we8i6")
+script = ExtResource("1_mr26o")
