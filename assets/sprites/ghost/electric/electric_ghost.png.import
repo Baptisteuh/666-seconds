@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cl1gw4k8druaj"
-path="res://.godot/imported/energy_ghost.png-29031c0c32c13dac6f040ca85a45d21a.ctex"
+path="res://.godot/imported/electric_ghost.png-32c31eee739cde6b5c2fd4372b185275.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ghost/energy/energy_ghost.png"
-dest_files=["res://.godot/imported/energy_ghost.png-29031c0c32c13dac6f040ca85a45d21a.ctex"]
+source_file="res://assets/sprites/ghost/electric/electric_ghost.png"
+dest_files=["res://.godot/imported/electric_ghost.png-32c31eee739cde6b5c2fd4372b185275.ctex"]
 
 [params]
 

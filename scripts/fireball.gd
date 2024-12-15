@@ -2,7 +2,7 @@ extends Area2D
 
 
 @export var speed = 3000.0
-@export var damages = 50.0
+@export var damages = 100.0
 
 var hit = false
 

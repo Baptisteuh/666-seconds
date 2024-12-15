@@ -10,7 +10,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		label.visible = true
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_body_exited(_body: Node2D) -> void:
 	label.visible = false
 
 # to add audio_stream_player_2d.play()
