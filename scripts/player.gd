@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 50 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
+var can_move = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !GlobalVariables.reading:
+	if self.can_move:
 		velocity = Vector2.ZERO # The player's movement vector.
 		if Input.is_action_pressed("move_right"):
 			velocity.x += 1
