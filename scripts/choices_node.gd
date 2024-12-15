@@ -38,9 +38,8 @@ func onChoiceSelected(index: int) -> void:
 	# Detect if it was "Yes" or "No"
 	if selected_choice == "Yes":
 		print("User selected Yes!")
-		player.can_move = true
 		if current_door:
-			current_door.enter_door()  # Call the enter_door() of the correct door
+			current_door.enter_door()  #s Call the enter_door() of the correct door
 	elif selected_choice == "No":
 		print("User selected No!")
 		player.can_move = true
