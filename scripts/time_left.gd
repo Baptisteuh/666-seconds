@@ -21,14 +21,15 @@ func _on_timer_timeout() -> void:
 func _process(_delta: float) -> void:
 	if hit:
 		duration = timer.time_left
-		duration -= 50.0
-		if duration <= 0:
+		duration -= 100.0
+		if duration <= 0.0:
 			lose()
 		timer.stop()
 		timer.wait_time = duration
 		hit = false
 		timer.start()
-	get_node("/root/GlobalVariables").time = duration
+	if duration > 0.0:
+		get_node("/root/GlobalVariables").time = duration
 	self.text = str(roundf(timer.time_left))
 
 
