@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=34 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://t41ehcdpq7f5" path="res://scenes/choice_canvas_layer.tscn" id="17_7n2qd"]
 [ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
 [ext_resource type="Script" path="res://scripts/textbox.gd" id="20_eqpts"]
+[ext_resource type="Script" path="res://scripts/journal_interaction.gd" id="22_ilrho"]
+[ext_resource type="Texture2D" uid="uid://cbk8sevrnmfar" path="res://assets/sprites/star_particle.png" id="22_mhgkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504d0"]
 size = Vector2(17, 19)
@@ -32,6 +34,44 @@ font = ExtResource("6_o6sar")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2sofg"]
 font = ExtResource("6_o6sar")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktb6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55rg1"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v88us"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k5jw"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7uty"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jn8p"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_55rg1")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_v88us")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4k5jw")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_g7uty")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_k0mp0")
@@ -306,6 +346,21 @@ stream = ExtResource("7_q8u0s")
 [node name="SceneSettingText" parent="." instance=ExtResource("19_t6sd6")]
 script = ExtResource("20_eqpts")
 
+[node name="JournalInteraction" type="Node2D" parent="."]
+position = Vector2(664, 434)
+
+[node name="Area2D" type="Area2D" parent="JournalInteraction"]
+script = ExtResource("22_ilrho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JournalInteraction/Area2D"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="JournalInteraction/Area2D"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.0325687
+
 [connection signal="body_entered" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_entered"]
 [connection signal="body_exited" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_exited"]
 [connection signal="body_entered" from="RoomRight/RoomRight2/DoorSmall" to="RoomRight/RoomRight2/DoorSmall" method="_on_body_entered"]
@@ -324,3 +379,5 @@ script = ExtResource("20_eqpts")
 [connection signal="body_exited" from="RoomUpstair/RoomUp/StairsUp" to="RoomUpstair/RoomUp/StairsUp" method="_on_body_exited"]
 [connection signal="body_entered" from="Exit/ExitDoor" to="Exit/ExitDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="Exit/ExitDoor" to="Exit/ExitDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="JournalInteraction/Area2D" to="JournalInteraction/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="JournalInteraction/Area2D" to="JournalInteraction/Area2D" method="_on_body_exited"]
