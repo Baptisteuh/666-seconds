@@ -25,6 +25,7 @@ func move_player() -> void:
 			audio_stream_player_2d.play()
 			TransitionScreen.transition()
 			await TransitionScreen.on_transition_finished
+			player.can_move = true
 			player.global_position = marker.global_position
 
 func _on_body_exited(_body: Node2D) -> void:

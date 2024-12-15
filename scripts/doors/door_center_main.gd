@@ -5,6 +5,7 @@ extends Area2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
 @onready var canvas_layer: CanvasLayer = $"../../../Player/Camera2D/CanvasLayer"
 @onready var player: CharacterBody2D = $"../../../Player"
+@onready var textbox: CanvasLayer = $"../../../SceneSettingText"
 
 func _ready():
 	label.visible = false
@@ -37,4 +38,5 @@ func enter_door() -> void:
 	audio_stream_player_2d.play()
 	TransitionScreen.transition()
 	await TransitionScreen.on_transition_finished
+	player.can_move = true
 	player.global_position = marker.global_position
