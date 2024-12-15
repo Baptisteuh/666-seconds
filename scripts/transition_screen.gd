@@ -4,7 +4,6 @@ signal on_transition_finished
 
 @onready var color_rect = $ColorRect
 @onready var animation_player = $AnimationPlayer
-@onready var player: CharacterBody2D = $"../../../../Player"
 
 func _on_animation_finished(anim_name):
 	if anim_name == "fade_to_black":

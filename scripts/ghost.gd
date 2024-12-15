@@ -22,7 +22,13 @@ func shoot() -> void:
 	var fireball = Fireball.instantiate()
 	add_child(fireball)
 	fireball.transform = $Aim.transform
-
+	
+	var audio_player = AudioStreamPlayer.new()
+	audio_player.stream = preload("res://assets/sounds/effects/ball.mp3")
+	add_child(audio_player)
+	
+	audio_player.play()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if GlobalVariables.ghost_type == "":
