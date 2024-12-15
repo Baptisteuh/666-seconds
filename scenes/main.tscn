@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=35 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
@@ -16,8 +16,14 @@
 [ext_resource type="Script" path="res://scripts/doors/door_left_main.gd" id="10_wxvhm"]
 [ext_resource type="Script" path="res://scripts/doors/door_left_small.gd" id="11_e360y"]
 [ext_resource type="Script" path="res://scripts/doors/stairs_down.gd" id="12_222ky"]
+[ext_resource type="AudioStream" uid="uid://dsnto1no33g4s" path="res://assets/sounds/effects/walking-up-the-stairs.mp3" id="13_3np38"]
 [ext_resource type="Script" path="res://scripts/doors/stairs_up.gd" id="13_kbdpb"]
 [ext_resource type="Script" path="res://scripts/doors/exit_door.gd" id="14_ws3n3"]
+[ext_resource type="PackedScene" uid="uid://t41ehcdpq7f5" path="res://scenes/choice_canvas_layer.tscn" id="17_7n2qd"]
+[ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
+[ext_resource type="Script" path="res://scripts/textbox.gd" id="20_eqpts"]
+[ext_resource type="Script" path="res://scripts/journal_interaction.gd" id="22_ilrho"]
+[ext_resource type="Texture2D" uid="uid://cbk8sevrnmfar" path="res://assets/sprites/star_particle.png" id="22_mhgkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504d0"]
 size = Vector2(17, 19)
@@ -30,11 +36,50 @@ font = ExtResource("6_o6sar")
 [sub_resource type="LabelSettings" id="LabelSettings_2sofg"]
 font = ExtResource("6_o6sar")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ktb6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55rg1"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v88us"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k5jw"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7uty"]
+atlas = ExtResource("22_mhgkx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7jn8p"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_55rg1")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_v88us")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_4k5jw")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_g7uty")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Main" type="Node"]
 script = ExtResource("1_k0mp0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3l87y")
+volume_db = -10.0
 script = ExtResource("3_fu6tu")
 
 [node name="Layout" parent="." instance=ExtResource("4_d58gt")]
@@ -59,10 +104,10 @@ shape = SubResource("RectangleShape2D_504d0")
 [node name="Label" type="Label" parent="RoomRight/RoomRight/DoorMain"]
 texture_filter = 1
 offset_left = -30.0
-offset_top = -33.0
+offset_top = -29.0
 offset_right = 41.0
-offset_bottom = -10.0
-text = "Press Enter"
+offset_bottom = -6.0
+text = "Living Room"
 label_settings = SubResource("LabelSettings_r5qqx")
 
 [node name="Position1" type="Marker2D" parent="RoomRight/RoomRight"]
@@ -80,15 +125,15 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomRight/RoomRight2/DoorSmall"]
 texture_filter = 1
-offset_left = -33.0
-offset_top = 15.0
-offset_right = 38.0
-offset_bottom = 38.0
-text = "Press Enter"
+offset_left = -18.0
+offset_top = 16.0
+offset_right = 53.0
+offset_bottom = 39.0
+text = "Corridor"
 label_settings = SubResource("LabelSettings_r5qqx")
 
 [node name="Position2" type="Marker2D" parent="RoomRight/RoomRight2"]
-position = Vector2(680, 240)
+position = Vector2(679, 233)
 
 [node name="RoomCenter" type="Node2D" parent="."]
 
@@ -108,12 +153,13 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomCenter/RoomCenter/DoorCenter"]
 texture_filter = 1
-offset_left = -30.0
-offset_top = -33.0
-offset_right = 41.0
-offset_bottom = -10.0
-text = "Press Enter"
+offset_left = -37.0
+offset_top = -32.0
+offset_right = 34.0
+offset_bottom = -9.0
+text = "Kitchen"
 label_settings = SubResource("LabelSettings_r5qqx")
+horizontal_alignment = 1
 
 [node name="Position1" type="Marker2D" parent="RoomCenter/RoomCenter"]
 position = Vector2(727, 408)
@@ -130,12 +176,13 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomCenter/RoomCenterSmall/DoorCenterSmall"]
 texture_filter = 1
-offset_left = -33.0
+offset_left = -28.0
 offset_top = 15.0
-offset_right = 38.0
+offset_right = 43.0
 offset_bottom = 38.0
-text = "Press Enter"
+text = "Corridor"
 label_settings = SubResource("LabelSettings_r5qqx")
+horizontal_alignment = 1
 
 [node name="Position2" type="Marker2D" parent="RoomCenter/RoomCenterSmall"]
 position = Vector2(1031, 445)
@@ -163,8 +210,9 @@ offset_left = -30.0
 offset_top = -33.0
 offset_right = 41.0
 offset_bottom = -10.0
-text = "Press Enter"
+text = "Bathroom"
 label_settings = SubResource("LabelSettings_r5qqx")
+horizontal_alignment = 1
 
 [node name="Position1" type="Marker2D" parent="RoomLeft/RoomLeft"]
 position = Vector2(791, 406)
@@ -181,11 +229,11 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomLeft/RoomLeftSmall/DoorLeftSmall"]
 texture_filter = 1
-offset_left = -33.0
+offset_left = -21.0
 offset_top = 15.0
-offset_right = 38.0
+offset_right = 50.0
 offset_bottom = 38.0
-text = "Press Enter"
+text = "Corridor"
 label_settings = SubResource("LabelSettings_r5qqx")
 
 [node name="Position2" type="Marker2D" parent="RoomLeft/RoomLeftSmall"]
@@ -196,7 +244,8 @@ position = Vector2(797, 415)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="RoomUpstair"]
 position = Vector2(794, 314)
-stream = ExtResource("7_q8u0s")
+stream = ExtResource("13_3np38")
+volume_db = 13.867
 
 [node name="RoomDown" type="Node" parent="RoomUpstair"]
 
@@ -248,9 +297,10 @@ z_index = 1
 position = Vector2(736, 428)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(4, 4)
+zoom = Vector2(4.15, 4.15)
 
 [node name="HUD" parent="Player/Camera2D" instance=ExtResource("1_w5jnp")]
+z_index = 4
 offset_left = -144.0
 offset_top = -81.0
 offset_right = -144.0
@@ -265,6 +315,8 @@ offset_right = -142.0
 offset_bottom = -68.0
 scale = Vector2(9.60829, 5.23308)
 color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" parent="Player/Camera2D" instance=ExtResource("17_7n2qd")]
 
 [node name="ghost" parent="." instance=ExtResource("3_2pqcv")]
 z_index = 1
@@ -297,6 +349,24 @@ label_settings = SubResource("LabelSettings_2sofg")
 position = Vector2(794, 314)
 stream = ExtResource("7_q8u0s")
 
+[node name="SceneSettingText" parent="." instance=ExtResource("19_t6sd6")]
+script = ExtResource("20_eqpts")
+
+[node name="JournalInteraction" type="Node2D" parent="."]
+position = Vector2(664, 434)
+
+[node name="Area2D" type="Area2D" parent="JournalInteraction"]
+script = ExtResource("22_ilrho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JournalInteraction/Area2D"]
+shape = SubResource("RectangleShape2D_1ktb6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="JournalInteraction/Area2D"]
+scale = Vector2(0.5, 0.46875)
+sprite_frames = SubResource("SpriteFrames_7jn8p")
+autoplay = "default"
+frame_progress = 0.0057805
+
 [connection signal="body_entered" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_entered"]
 [connection signal="body_exited" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_exited"]
 [connection signal="body_entered" from="RoomRight/RoomRight2/DoorSmall" to="RoomRight/RoomRight2/DoorSmall" method="_on_body_entered"]
@@ -315,3 +385,5 @@ stream = ExtResource("7_q8u0s")
 [connection signal="body_exited" from="RoomUpstair/RoomUp/StairsUp" to="RoomUpstair/RoomUp/StairsUp" method="_on_body_exited"]
 [connection signal="body_entered" from="Exit/ExitDoor" to="Exit/ExitDoor" method="_on_body_entered"]
 [connection signal="body_exited" from="Exit/ExitDoor" to="Exit/ExitDoor" method="_on_body_exited"]
+[connection signal="body_entered" from="JournalInteraction/Area2D" to="JournalInteraction/Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="JournalInteraction/Area2D" to="JournalInteraction/Area2D" method="_on_body_exited"]
