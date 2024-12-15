@@ -133,7 +133,7 @@ text = "Corridor"
 label_settings = SubResource("LabelSettings_r5qqx")
 
 [node name="Position2" type="Marker2D" parent="RoomRight/RoomRight2"]
-position = Vector2(680, 240)
+position = Vector2(679, 233)
 
 [node name="RoomCenter" type="Node2D" parent="."]
 
