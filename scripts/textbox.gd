@@ -6,6 +6,7 @@ const CHAR_READ_RATE = 0.05
 @onready var start_symbol = $TextboxContainer/MarginContainer/HBoxContainer/Start
 @onready var end_symbol = $TextboxContainer/MarginContainer/HBoxContainer/End
 @onready var label = $TextboxContainer/MarginContainer/HBoxContainer/Label
+@onready var player: CharacterBody2D = $"../Player"
 
 enum State {
 	READY,
@@ -67,6 +68,8 @@ func display_text():
 	label.text = next_text
 	label.visible_characters = 0  # Reset visible_characters
 	
+	GlobalVariables.reading = true
+	
 	# Then create the tween
 	tween = get_tree().create_tween()
 	tween.tween_property(label, "visible_characters", len(label.text), len(label.text) * CHAR_READ_RATE)
@@ -82,3 +85,4 @@ func change_state(next_state):
 func _on_tween_finished():
 	end_symbol.text = "<-"
 	change_state(State.FINISHED)
+	GlobalVariables.reading = false
