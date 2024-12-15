@@ -11,3 +11,5 @@ var killed_water
 var time = 666.0
 
 var victory_text = ""
+
+var reading = false

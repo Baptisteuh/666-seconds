@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://5asq5j35jtul"]
+[gd_scene load_steps=25 format=3 uid="uid://5asq5j35jtul"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_k0mp0"]
 [ext_resource type="PackedScene" uid="uid://bc7yw3u4m6uue" path="res://scenes/player.tscn" id="1_p2ntj"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" path="res://scripts/doors/stairs_down.gd" id="12_222ky"]
 [ext_resource type="Script" path="res://scripts/doors/stairs_up.gd" id="13_kbdpb"]
 [ext_resource type="Script" path="res://scripts/doors/exit_door.gd" id="14_ws3n3"]
+[ext_resource type="PackedScene" uid="uid://bq25owup2md48" path="res://scenes/textbox.tscn" id="19_t6sd6"]
+[ext_resource type="Script" path="res://scripts/textbox.gd" id="20_eqpts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_504d0"]
 size = Vector2(17, 19)
@@ -35,6 +37,7 @@ script = ExtResource("1_k0mp0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3l87y")
+volume_db = -10.0
 script = ExtResource("3_fu6tu")
 
 [node name="Layout" parent="." instance=ExtResource("4_d58gt")]
@@ -296,6 +299,9 @@ label_settings = SubResource("LabelSettings_2sofg")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Exit"]
 position = Vector2(794, 314)
 stream = ExtResource("7_q8u0s")
+
+[node name="SceneSettingText" parent="." instance=ExtResource("19_t6sd6")]
+script = ExtResource("20_eqpts")
 
 [connection signal="body_entered" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_entered"]
 [connection signal="body_exited" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_exited"]
