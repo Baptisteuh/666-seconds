@@ -78,13 +78,6 @@ func display_text():
 
 func change_state(next_state):
 	current_state = next_state
-	match current_state:
-		State.READY:
-			print("Changing state to: State.READY")
-		State.READING:
-			print("Changing state to: State.READING")
-		State.FINISHED:
-			print("Changing state to: State.FINISHED")
 
 func _on_tween_finished():
 	end_symbol.text = "<-"
