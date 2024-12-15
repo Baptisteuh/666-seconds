@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var label: Label = $Label
 
 @export var dialog_offset: Vector2 = Vector2(-50, -10)
-@export var label_offset: Vector2 = Vector2(-140, -30)
+@export var label_offset: Vector2 = Vector2(-100, -30)
 
 var current_door: Area2D = null  # Variable to store the current door being interacted with
 

@@ -103,10 +103,10 @@ shape = SubResource("RectangleShape2D_504d0")
 [node name="Label" type="Label" parent="RoomRight/RoomRight/DoorMain"]
 texture_filter = 1
 offset_left = -30.0
-offset_top = -33.0
+offset_top = -29.0
 offset_right = 41.0
-offset_bottom = -10.0
-text = "Press Enter"
+offset_bottom = -6.0
+text = "Living Room"
 label_settings = SubResource("LabelSettings_r5qqx")
 
 [node name="Position1" type="Marker2D" parent="RoomRight/RoomRight"]
@@ -124,11 +124,11 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomRight/RoomRight2/DoorSmall"]
 texture_filter = 1
-offset_left = -33.0
-offset_top = 15.0
-offset_right = 38.0
-offset_bottom = 38.0
-text = "Press Enter"
+offset_left = -18.0
+offset_top = 16.0
+offset_right = 53.0
+offset_bottom = 39.0
+text = "Corridor"
 label_settings = SubResource("LabelSettings_r5qqx")
 
 [node name="Position2" type="Marker2D" parent="RoomRight/RoomRight2"]
@@ -152,12 +152,13 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomCenter/RoomCenter/DoorCenter"]
 texture_filter = 1
-offset_left = -30.0
-offset_top = -33.0
-offset_right = 41.0
-offset_bottom = -10.0
-text = "Press Enter"
+offset_left = -37.0
+offset_top = -32.0
+offset_right = 34.0
+offset_bottom = -9.0
+text = "Kitchen"
 label_settings = SubResource("LabelSettings_r5qqx")
+horizontal_alignment = 1
 
 [node name="Position1" type="Marker2D" parent="RoomCenter/RoomCenter"]
 position = Vector2(727, 408)
@@ -174,12 +175,13 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomCenter/RoomCenterSmall/DoorCenterSmall"]
 texture_filter = 1
-offset_left = -33.0
+offset_left = -28.0
 offset_top = 15.0
-offset_right = 38.0
+offset_right = 43.0
 offset_bottom = 38.0
-text = "Press Enter"
+text = "Corridor"
 label_settings = SubResource("LabelSettings_r5qqx")
+horizontal_alignment = 1
 
 [node name="Position2" type="Marker2D" parent="RoomCenter/RoomCenterSmall"]
 position = Vector2(1031, 445)
@@ -207,8 +209,9 @@ offset_left = -30.0
 offset_top = -33.0
 offset_right = 41.0
 offset_bottom = -10.0
-text = "Press Enter"
+text = "Bathroom"
 label_settings = SubResource("LabelSettings_r5qqx")
+horizontal_alignment = 1
 
 [node name="Position1" type="Marker2D" parent="RoomLeft/RoomLeft"]
 position = Vector2(791, 406)
@@ -225,11 +228,11 @@ shape = SubResource("RectangleShape2D_504d0")
 
 [node name="Label" type="Label" parent="RoomLeft/RoomLeftSmall/DoorLeftSmall"]
 texture_filter = 1
-offset_left = -33.0
+offset_left = -21.0
 offset_top = 15.0
-offset_right = 38.0
+offset_right = 50.0
 offset_bottom = 38.0
-text = "Press Enter"
+text = "Corridor"
 label_settings = SubResource("LabelSettings_r5qqx")
 
 [node name="Position2" type="Marker2D" parent="RoomLeft/RoomLeftSmall"]
@@ -359,7 +362,7 @@ shape = SubResource("RectangleShape2D_1ktb6")
 scale = Vector2(0.5, 0.46875)
 sprite_frames = SubResource("SpriteFrames_7jn8p")
 autoplay = "default"
-frame_progress = 0.0325687
+frame_progress = 0.0057805
 
 [connection signal="body_entered" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_entered"]
 [connection signal="body_exited" from="RoomRight/RoomRight/DoorMain" to="RoomRight/RoomRight/DoorMain" method="_on_body_exited"]
